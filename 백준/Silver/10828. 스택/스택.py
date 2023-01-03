@@ -1,11 +1,11 @@
 import sys
-input=sys.stdin.readline
+input=sys.stdin.readline        # 시간초과 피하기
 
 stack=[]
 n=int(input())
 
 for i in range(n):
-    command=input().rstrip()
+    command=input().rstrip()    # 개행문자 rstrip
     if command.startswith('push'):
         c,n=command.split()
         stack.append(n)
