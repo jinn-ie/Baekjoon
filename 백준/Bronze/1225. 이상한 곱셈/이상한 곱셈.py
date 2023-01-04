@@ -1,8 +1,5 @@
-import sys
-input=sys.stdin.readline
-
 ra,rb=0,0
-a,b=input().rstrip().split()
+a,b=input().split()
 
 for i in a:
     ra+=int(i)
