@@ -1,4 +1,6 @@
 from collections import Counter
+import sys
+input=sys.stdin.readline
 
 input()
 card_list=list(input().split())
