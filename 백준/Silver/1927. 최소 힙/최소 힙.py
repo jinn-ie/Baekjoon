@@ -2,13 +2,13 @@ import heapq,sys
 input=sys.stdin.readline
 
 n=int(input())
-maxHeap=[]
+minHeap=[]
 for _ in range(n):
     x=int(input())
     if x==0:
-        if not maxHeap: print(0)
+        if not minHeap: print(0)
         else:
-            print(maxHeap[0])
-            heapq.heappop(maxHeap)
+            print(minHeap[0])
+            heapq.heappop(minHeap)
     else:
-        heapq.heappush(maxHeap,x)
+        heapq.heappush(minHeap,x)
