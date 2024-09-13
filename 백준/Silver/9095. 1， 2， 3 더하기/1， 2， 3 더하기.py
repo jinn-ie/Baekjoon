@@ -1,16 +1,18 @@
 import sys
-input=sys.stdin.readline
+input = sys.stdin.readline
 
-T=int(input())
+T = int(input())
 
 for _ in range(T):
-    n=int(input())
-    first,second,third=1,2,4
-    if n<4:
-        if n==1: print(first)
-        elif n==2: print(second)
-        elif n==3: print(third)
+    n = int(input())
+    one, two, three = 1, 2, 4
+    
+    # 초기값일 때
+    if n == 1: print(one)
+    elif n == 2: print(two)
+    elif n == 3: print(three)
+    # 그 이상일 때 점화식 사용
     else:
-        for _ in range(n-3):
-            first,second,third=second,third,first+second+third
-        print(third)
+        for i in range(n - 3):
+            one, two, three = two, three, one + two + three
+        print(three)
