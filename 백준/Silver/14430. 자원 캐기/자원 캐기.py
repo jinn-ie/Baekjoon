@@ -5,15 +5,15 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 ground = [list(map(int, input().split())) for _ in range(n)]
 
-# 맨 아래는 오른쪽 값 합산
-for j in range(m - 2, -1, -1):
-    ground[n - 1][j] += ground[n - 1][j + 1]
+# 맨 위쪽은 왼쪽 값 합산
+for j in range(1, m):
+    ground[0][j] += ground[0][j - 1]
 
-for i in range(n - 2, -1, -1):
-    # 맨 오른쪽은 아래 값 합산
-    ground[i][m - 1] += ground[i + 1][m - 1] 
-    for j in range(m - 2, -1, -1):
-        # 그 외는 오른쪽, 아래 중 큰 값 합산
-        ground[i][j] += max(ground[i + 1][j], ground[i][j + 1])
+for i in range(1, n):
+    # 맨 왼쪽은 위쪽 값 합산
+    ground[i][0] += ground[i - 1][0] 
+    for j in range(1, m):
+        # 그 외는 왼쪽, 위쪽 중 큰 값 합산
+        ground[i][j] += max(ground[i - 1][j], ground[i][j - 1])
 
-print(ground[0][0])
+print(ground[n - 1][m - 1])
