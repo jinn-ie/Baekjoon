@@ -5,9 +5,6 @@ input = sys.stdin.readline
 n = int(input())
 houses = [list(map(int, input().split())) for _ in range(n)]
 
-# 초항 설정
-cur = houses[0]
-
 # DP
 for i in range(1, n):
     for j in range(3):
