@@ -1,27 +1,31 @@
 import sys
-input=sys.stdin.readline
+input = sys.stdin.readline
 
-n,m=map(int,input().split())
-woods=list(map(int,input().split()))
+# input 받기
+n,m = map(int,input().split())
+woods = list(map(int,input().split()))
 
-# 초기설정
-low=0
-high=max(woods)
+# 초깃값 설정
+low = 0
+high = max(woods)
 
 # 이분탐색
-while(True):
-     h=(low+high)//2
-     get=0
-     for wood in woods:
-          if wood-h>0: get+=wood-h
-          if get>m: break
-     
-     if get<m: high=h
-     elif get>m: low=h
-     else:
-          print(h) 
-          break
-     if low+1==high: 
-          if low==h: print(h)
-          elif high==h: print(h-1)
-          break
+while low <= high:
+    # 초깃값 설정
+    h = (low + high) // 2
+    get = 0
+
+    # 나무 잘라보기
+    for wood in woods:
+        if wood > h: get += wood - h
+        if get > m:
+            low = h + 1
+            break
+    else:
+        if get == m:
+            print(h)
+            break
+        else: high = h - 1
+else:
+    if high == h - 1: print(h - 1)
+    else: print(h)
