@@ -10,10 +10,9 @@ def solution(answers):
     
     # 사람별 맞힌 문제 개수 체크
     for i in range(len(answers)):
-        a = answers[i]
-        if a == p1[i]: score[0] += 1
-        if a == p2[i]: score[1] += 1
-        if a == p3[i]: score[2] += 1
+        if answers[i] == p1[i]: score[0] += 1
+        if answers[i] == p2[i]: score[1] += 1
+        if answers[i] == p3[i]: score[2] += 1
     
     for i in range(3):
         if score[i] == max(score):  # 최고점이면
