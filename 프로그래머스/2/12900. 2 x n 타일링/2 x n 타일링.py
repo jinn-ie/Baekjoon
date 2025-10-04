@@ -1,8 +1,9 @@
 def solution(n):
     
-    s1, s2 = 1, 2
+    MOD = 1000000007
+    n1, n2 = 1, 2
     
-    for i in range(n - 2):
-        s1, s2 = s2, s1 + s2
+    for _ in range(n - 2):
+        n1, n2 = n2, (n1 + n2) % MOD 
 
-    return s2 % 1000000007
+    return n2
